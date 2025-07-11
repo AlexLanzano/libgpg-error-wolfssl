@@ -229,7 +229,7 @@ AM_CONDITIONAL(INSTALL_GPG_ERROR_CONFIG,
                test "$install_gpg_error_config" = "yes")
 
 # Note, that autogen.sh greps for the next line.
-AM_GNU_GETTEXT_VERSION([0.19.3])
+AM_GNU_GETTEXT_VERSION([0.21])
 AM_GNU_GETTEXT([external])
 
 # Checks for header files.
