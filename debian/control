@@ -1,0 +1,70 @@
+Source: libgpg-error
+Section: libs
+Priority: optional
+Maintainer: unknown <alex@unknown>
+Rules-Requires-Root: no
+Build-Depends:
+ automake (>= 1.14),
+ debhelper-compat (= 13),
+ gettext (>= 0.19.3),
+ pkgconf <!nocheck>,
+Standards-Version: 4.6.2
+Homepage: https://www.gnupg.org/related_software/libgpg-error/
+Vcs-Git: https://salsa.debian.org/debian/libgpg-error.git -b debian/unstable
+Vcs-Browser: https://salsa.debian.org/debian/libgpg-error
+
+Package: libgpg-error-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ libgpg-error0 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: GnuPG development runtime library (developer tools)
+ Library that defines common error values, messages, and common
+ runtime functionality for all GnuPG components.  Among these are GPG,
+ GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+ possibly more in the future.
+ .
+ It will likely be renamed "gpgrt" in the future.
+ .
+ This package contains the headers and other files needed to compile
+ against this library.
+
+Package: libgpg-error0
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Pre-Depends:
+ ${misc:Pre-Depends},
+Recommends:
+ libgpg-error-l10n,
+Description: GnuPG development runtime library
+ Library that defines common error values, messages, and common
+ runtime functionality for all GnuPG components.  Among these are GPG,
+ GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+ possibly more in the future.
+ .
+ It will likely be renamed "gpgrt" in the future.
+
+Package: gpgrt-tools
+Architecture: any
+Section: devel
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Pre-Depends:
+ ${misc:Pre-Depends},
+Description: GnuPG development runtime library (executable tools)
+ gpgrt (also known as libgpg-error) defines common error values,
+ messages, and common runtime functionality for all GnuPG components.
+ Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry,
+ SmartCard Daemon and possibly more in the future.
+ .
+ This package contains yat2m, a Texinfo to nroff/troff converter
+ useful for building manpages, and gpg-error, a binary for deciphering
+ GnuPG/libgcrypt error codes.
